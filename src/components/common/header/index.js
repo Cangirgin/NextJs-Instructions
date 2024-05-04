@@ -5,9 +5,9 @@ import MenuItemData from "./menu.json"
 import Link from 'next/link'
 const Header = () => {
     return (
-        <Navbar expand="lg" className="bg-body-tertiary">
+        <Navbar expand="lg" bg='dark' data-bs-theme="dark">
             <Container>
-                <Navbar.Brand as={Link} href="/">Product Manager</Navbar.Brand>
+                <Navbar.Brand as={Link} href="/">Techpro Education </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
@@ -19,6 +19,10 @@ const Header = () => {
 
                     </Nav>
                 </Navbar.Collapse>
+
+                <Nav>
+                    <Nav.Link as={Link} href="/dashboard">Dashboard</Nav.Link>
+                </Nav>
             </Container>
         </Navbar>)
 }
