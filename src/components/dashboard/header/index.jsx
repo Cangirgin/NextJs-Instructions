@@ -1,8 +1,14 @@
 "use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
+//import "@/components/dashboard/header"
+import "./style.scss"
+import MenuItemData from "./menu.json"
 
 const DashboardHeader = () => {
+    const pathname = usePathname()
+    console.log(pathname)
 
     return (
         <Navbar className={`bg-danger mb-3`} expand={false} collapseOnSelect> {/*collapseOnSelect tıklandığında menüyü kapatır  */}
@@ -21,10 +27,11 @@ const DashboardHeader = () => {
                     </Offcanvas.Header>
                     <Offcanvas.Body>
                         <Nav className="justify-content-end flex-grow-1 pe-3">
-                            <Nav.Link as={Link} href="/dashboard" >Dashboard</Nav.Link>
-                            <Nav.Link as={Link} href="/dashboard/products" >Products</Nav.Link>
-                            <Nav.Link as={Link} href="/dashboard/profile" >Profile</Nav.Link>
-                            <Nav.Link as={Link} href="/" >Home</Nav.Link>
+                            {
+                                MenuItemData.map((item) => (
+                                    <Nav.Link as={Link} key={item.id} href={item.url} active={pathname === item.url} >{item.title}</Nav.Link>
+                                ))
+                            }
                         </Nav>
                     </Offcanvas.Body>
                 </Navbar.Offcanvas>

@@ -5,7 +5,7 @@ import MenuItemData from "./menu.json"
 import Link from 'next/link'
 const Header = () => {
     return (
-        <Navbar expand="lg" bg='dark' data-bs-theme="dark">
+        <Navbar expand="lg" bg='dark' data-bs-theme="dark" collapseOnSelect>
             <Container>
                 <Navbar.Brand as={Link} href="/">Techpro Education </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
