@@ -12,7 +12,7 @@ const DashboardHeader = () => {
 
     return (
         <Navbar className={`bg-danger mb-3`} expand={false} collapseOnSelect> {/*collapseOnSelect tıklandığında menüyü kapatır  */}
-            <Container>
+            <Container >
                 <Navbar.Brand href="/dashboard">Product Manager</Navbar.Brand>
                 <Navbar.Toggle aria-controls={`dashboardOffcanvas`} />
                 <Navbar.Offcanvas

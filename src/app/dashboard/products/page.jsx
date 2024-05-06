@@ -1,8 +1,12 @@
+import PageHeader from '@/components/common/page-header'
 import React from 'react'
 
 const DashboardProductsPage = () => {
     return (
-        <div>DashboardProductsPage</div>
+        <div>
+            <PageHeader title="DashboardProductsPage" />
+
+        </div>
     )
 }
 

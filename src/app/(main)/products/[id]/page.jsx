@@ -1,8 +1,13 @@
+import PageHeader from '@/components/common/page-header'
 import React from 'react'
 
 const ProductDetails = ({ params }) => {
     return (
-        <div>ProductDetails:{params.id}</div>
+        <div>
+            <PageHeader title="Product Details" />
+
+            ProductDetails:{params.id}
+        </div>
     )
 }
 
