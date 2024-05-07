@@ -1,6 +1,14 @@
 import { inriaSerif } from "@/utils/fonts";
 import "./index.scss"
 
+export const metadata = {
+  title: {
+    template: "%s | Cosmo Shop",
+    default: "Cosmo Shop"
+  },
+  description: "You can get luxury electronic devices",
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inriaSerif.variable} h-100`}>

@@ -1,6 +1,16 @@
 import PageHeader from '@/components/common/page-header'
 import React from 'react'
 
+export const metadata = {
+    title: {
+        absolute: "Free Title"
+
+    },
+    description: "You can get luxury electronic devices",
+};
+
+
+
 const DashboardProductsDetailsPage = ({ params }) => {
     return (
         <div>

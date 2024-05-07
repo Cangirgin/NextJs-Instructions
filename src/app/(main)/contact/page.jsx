@@ -4,6 +4,12 @@ import React from 'react'
 import logo from "../../../../public/image/logo.png"
 import PageHeader from '@/components/common/page-header'
 
+
+export const metadata = {
+    title: "Contact",
+    description: "You can get luxury electronic devices",
+};
+
 const ContactPages = async () => {
     await delay(5000)
     return (

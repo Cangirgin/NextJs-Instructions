@@ -8,7 +8,6 @@ import MenuItemData from "./menu.json"
 
 const DashboardHeader = () => {
     const pathname = usePathname()
-    console.log(pathname)
 
     return (
         <Navbar className={`bg-danger mb-3`} expand={false} collapseOnSelect> {/*collapseOnSelect tıklandığında menüyü kapatır  */}
