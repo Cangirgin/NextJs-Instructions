@@ -28,7 +28,7 @@ const DashboardHeader = () => {
                         <Nav className="justify-content-end flex-grow-1 pe-3">
                             {
                                 MenuItemData.map((item) => (
-                                    <Nav.Link as={Link} key={item.id} href={item.url} active={pathname === item.url} >{item.title}</Nav.Link>
+                                    <Nav.Link id="nav-link" as={Link} key={item.id} href={item.url} active={pathname === item.url} >{item.title}</Nav.Link>
                                 ))
                             }
                         </Nav>

@@ -1,4 +1,4 @@
-import { delay } from '@/utils/misc'
+import { delay } from '@/helpers/misc'
 import Image from 'next/image'
 import React from 'react'
 import logo from "../../../../public/image/logo.png"

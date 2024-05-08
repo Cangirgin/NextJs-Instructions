@@ -1,4 +1,4 @@
-import { inriaSerif } from "@/utils/fonts";
+import { inriaSerif } from "@/helpers/fonts";
 import "./index.scss"
 
 export const metadata = {

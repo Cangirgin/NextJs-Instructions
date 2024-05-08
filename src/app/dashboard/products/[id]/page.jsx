@@ -1,4 +1,6 @@
 import PageHeader from '@/components/common/page-header'
+import EditProductForm from '@/components/dashboard/product/edit-product-form';
+import { config } from '@/helpers/config';
 import React from 'react'
 
 export const metadata = {
@@ -11,12 +13,13 @@ export const metadata = {
 
 
 
-const DashboardProductsDetailsPage = ({ params }) => {
+const DashboardProductsDetailsPage = async ({ params }) => {
+    const resp = await fetch(`${config.apiBaseURL}/products2/${params.id}`)
+    const products = await resp.json();
+
     return (
         <div>
-            <PageHeader title="Dashboard Products Details Page" />
-
-            <h2>{params.id}</h2>
+            <EditProductForm products={products} />
         </div>
     )
 }
