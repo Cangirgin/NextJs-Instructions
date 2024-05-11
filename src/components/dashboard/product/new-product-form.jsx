@@ -1,22 +1,38 @@
 "use client";
-import CancelButton from '@/components/common/form-controls/cancel-button';
-import SubmitButton from '@/components/common/form-controls/submit-button'
-import React from 'react'
-import { Form } from 'react-bootstrap'
+import { createProductAction } from "@/actions/product-actions";
+import CancelButton from "@/components/common/form-controls/cancel-button";
+import SubmitButton from "@/components/common/form-controls/submit-button";
+import React from "react";
+import { useFormState } from "react-dom";
+import { Form } from "react-bootstrap";
 
 const NewProductForm = () => {
+    const initialState = { message: null, errors: {} };
+
+    // useFormstate hook u ile form ve server actin arasinda  cift yonlu bir iletisim kanali olusur
+    // dispatch ile formdan server action a
+    // state ile server actin dan form a
+    const [state, dispatch] = useFormState(createProductAction, initialState);
+
+    const { title, description, price, category, image } = state.errors;
+
     return (
-        <div>
-            <Form >
-                <input type="hidden" name="id" />
+        <>
+            {state.errors.common ? (
+                <div className="alert alert-danger">{state.errors.common}</div>
+            ) : (
+                ""
+            )}
+            <Form action={dispatch}>
                 <Form.Group className="mb-3">
                     <Form.Label>Title</Form.Label>
                     <Form.Control
                         name="title"
                         type="text"
-
+                        isInvalid={!!title}
                     />
                     <Form.Control.Feedback type="invalid">
+                        {title}
                     </Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group className="mb-3">
@@ -25,10 +41,10 @@ const NewProductForm = () => {
                         name="description"
                         as="textarea"
                         rows={3}
-
-
+                        isInvalid={!!description}
                     />
                     <Form.Control.Feedback type="invalid">
+                        {description}
                     </Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group className="mb-3">
@@ -36,29 +52,24 @@ const NewProductForm = () => {
                     <Form.Control
                         name="price"
                         type="number"
-
-
+                        isInvalid={!!price}
                     />
                     <Form.Control.Feedback type="invalid">
+                        {price}
                     </Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group className="mb-3">
-                    <Form.Label>category</Form.Label>
-                    <Form.Select
-                        name="category"
-
-
-
-                    >
+                    <Form.Label>Category</Form.Label>
+                    <Form.Select name="category" isInvalid={!!category}>
                         <option value="">Select</option>
-                        <option value="Books">Books</option>
-                        <option value="Computeds">Computers</option>
-                        <option value="Sports">Sports</option>
+                        <option value="Home">Home</option>
+                        <option value="Computers">Computers</option>
+                        <option value="Clothing">Clothing</option>
                         <option value="Kids">Kids</option>
-                        <option value="Games">Games</option>
-                        <option value="Games">Games</option>
+                        <option value="Grocery">Grocery</option>
                     </Form.Select>
                     <Form.Control.Feedback type="invalid">
+                        {category}
                     </Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group className="mb-3">
@@ -66,9 +77,10 @@ const NewProductForm = () => {
                     <Form.Control
                         name="image"
                         type="text"
-
+                        isInvalid={!!image}
                     />
                     <Form.Control.Feedback type="invalid">
+                        {image}
                     </Form.Control.Feedback>
                 </Form.Group>
 
@@ -77,8 +89,8 @@ const NewProductForm = () => {
                 <SubmitButton title="Create" />
                 <CancelButton />
             </Form>
-        </div>
-    )
-}
+        </>
+    );
+};
 
-export default NewProductForm
+export default NewProductForm;
