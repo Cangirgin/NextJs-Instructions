@@ -3,6 +3,7 @@ import Spacer from '@/components/common/spacer';
 import ProductList from '@/components/products/product-list';
 import { config } from '@/helpers/config';
 import React from 'react'
+import { Container } from 'react-bootstrap';
 
 //export const revalidate = 10
 
@@ -19,14 +20,17 @@ const ProductsPage = async () => {
     const products = await resp.json();
 
     return (
-        <div>
-            <Spacer height="50" />
+        <>
             <PageHeader title="Products" />
-            <Spacer height="50" />
-            <ProductList products={products} />
-            <Spacer height="50" />
+            <Container>
+                <Spacer height="50" />
+                <ProductList products={products} />
+                <Spacer height="50" />
 
-        </div>
+            </Container>
+
+        </>
+
     )
 }
 

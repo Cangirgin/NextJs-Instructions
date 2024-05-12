@@ -1,7 +1,7 @@
 import PageHeader from "@/components/common/page-header";
 import Spacer from "@/components/common/spacer";
+import UpcomingProduct from "@/components/homepage/UpcomingProduct";
 import Slider from "@/components/homepage/slider";
-import { Container } from "react-bootstrap";
 
 export const metadata = {
   title: "Home",
@@ -11,15 +11,13 @@ export const metadata = {
 export default function Home() {
 
   return (
-    <Container >
-      <Spacer height={50} />
-
+    <div>
       <PageHeader title="Home" />
-
-      <Spacer />
-
+      <Spacer height={50} />
       < Slider />
-      <Spacer />
-    </Container>
+      <Spacer height={50} />
+      <UpcomingProduct />
+      <Spacer height={50} />
+    </div>
   );
-}
+} 

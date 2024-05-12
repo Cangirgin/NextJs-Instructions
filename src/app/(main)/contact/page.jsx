@@ -3,6 +3,7 @@ import Image from 'next/image'
 import React from 'react'
 import logo from "../../../../public/image/logo.png"
 import PageHeader from '@/components/common/page-header'
+import { Container } from 'react-bootstrap'
 
 
 export const metadata = {
@@ -11,9 +12,9 @@ export const metadata = {
 };
 
 const ContactPages = async () => {
-    await delay(5000)
+    await delay(2000)
     return (
-        <div>
+        <Container>
             <PageHeader title="Contact" />
             <div style={{ height: "200px", width: "50%", position: "relative" }}>
                 <Image alt='pexels' src='https://images.pexels.com/photos/206784/pexels-photo-206784.jpeg?auto=compress&cs=tinysrgb&w=600'
@@ -24,7 +25,7 @@ const ContactPages = async () => {
             <div>
                 <Image alt='logo' src={logo} />
             </div>
-        </div>
+        </Container>
     )
 }
 

@@ -1,17 +1,17 @@
 import Footer from '@/components/common/footer'
 import Header from '@/components/common/header'
 import React from 'react'
-import { Container } from 'react-bootstrap'
+
 
 const MainLayout = ({ children }) => {
 
     return (
         <>
-            <Header />
-            <Container className="flex-grow-1">
+            <Header className="align-self-start" />
+            <main className='flex-grow-1'>
                 {children}
-            </Container>
-            <Footer />
+            </main>
+            <Footer className="align-self-end" />
         </>
     )
 }

@@ -1,8 +1,8 @@
 "use client"
-
-import Image from 'next/image';
+import "./slider.scss";
 import React, { useState } from 'react'
-import { Carousel } from 'react-bootstrap';
+import { Carousel, Image } from 'react-bootstrap';
+import slides from "@/helpers/slider.json";
 
 const Slider = () => {
     const [index, setIndex] = useState(0);
@@ -12,14 +12,19 @@ const Slider = () => {
     };
 
     return (
-        <Carousel activeIndex={index} onSelect={handleSelect}>
-            <Carousel.Item>
-                <Image alt='slider1' src="/image/slider-01.jpg" width="1640" height="624" />
-            </Carousel.Item>
-            <Carousel.Item>
-                <Image alt='slider2' src="/image/slider-02.jpg" width={1640} height={624} />
+        <Carousel activeIndex={index} onSelect={handleSelect} className="slider">
 
-            </Carousel.Item>
+            {
+                slides.map((slide) => (
+                    <Carousel.Item key={slide.id}>
+                        <Image alt='slider' src={`/image/slider2/${slide.image}`}
+                            className="img-fluid"
+                        />
+
+                    </Carousel.Item>
+                ))
+            }
+
         </Carousel>
     );
 }

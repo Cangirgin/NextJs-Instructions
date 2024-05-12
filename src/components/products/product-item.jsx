@@ -20,7 +20,7 @@ const ProductItem = ({ title, price, image, id }) => {
                 <Card.Title>{title}</Card.Title>
                 <Card.Subtitle>
                     <Badge>
-                        {price}
+                        {price} ₺
                     </Badge>
                 </Card.Subtitle>
 
