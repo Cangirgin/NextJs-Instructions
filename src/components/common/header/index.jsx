@@ -4,7 +4,14 @@ import { Container, Nav, Navbar } from 'react-bootstrap'
 import MenuItemData from "./menu.json"
 import Link from 'next/link'
 import Image from 'next/image'
+import { auth } from '@/auth'
+import { useSession } from 'next-auth/react'
+
 const Header = () => {
+
+    const { data: session } = useSession()
+    console.log(session)
+
     return (
         <Navbar expand="lg" bg='dark' data-bs-theme="dark" collapseOnSelect>
             <Container>
@@ -22,9 +29,11 @@ const Header = () => {
 
                     </Nav>
                 </Navbar.Collapse>
-
                 <Nav>
-                    <Nav.Link as={Link} href="/dashboard">Dashboard</Nav.Link>
+                    {
+                        session?.user ? <Link href="/dashboard" >Dashboard</Link> : <Link href="/login">Login</Link>
+                    }
+
                 </Nav>
             </Container>
         </Navbar>)

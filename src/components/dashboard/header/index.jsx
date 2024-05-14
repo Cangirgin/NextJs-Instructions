@@ -5,8 +5,20 @@ import { Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
 //import "@/components/dashboard/header"
 import "./style.scss"
 import MenuItemData from "./menu.json"
+import { FaSignOutAlt } from "react-icons/fa";
+import { signOut } from "next-auth/react";
 
 const DashboardHeader = () => {
+
+    const handleLogout = () => {
+        const resp = confirm("Are you sure to logout?")
+        if (!resp) return
+        signOut({ callbackUrl: "/" })
+
+
+    }
+
+
     const pathname = usePathname()
 
     return (
@@ -31,6 +43,8 @@ const DashboardHeader = () => {
                                     <Nav.Link id="nav-link" as={Link} key={item.id} href={item.url} active={pathname === item.url} >{item.title}</Nav.Link>
                                 ))
                             }
+                            <hr />
+                            <Nav.Link onClick={handleLogout} >Signout  <FaSignOutAlt /> </Nav.Link>
                         </Nav>
                     </Offcanvas.Body>
                 </Navbar.Offcanvas>

@@ -1,5 +1,6 @@
-import { inriaSerif } from "@/helpers/fonts";
+import { roboto } from "@/helpers/fonts";
 import "./index.scss"
+import { SessionProvider } from "next-auth/react"
 
 export const metadata = {
   title: {
@@ -11,9 +12,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inriaSerif.variable} h-100`}>
+    <html lang="en" className={`${roboto.variable} h-100`}>
       <body className={'d-flex flex-column  h-100 '}>
+        <SessionProvider>
         {children}
+        </SessionProvider>
       </body>
     </html>
   );
