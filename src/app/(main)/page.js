@@ -12,6 +12,7 @@ export default function Home() {
 
   return (
     <div>
+      <PageHeader title={Home} />
       <Spacer height={50} />
       < Slider />
       <Spacer height={50} />

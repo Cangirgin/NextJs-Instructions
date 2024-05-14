@@ -15,6 +15,7 @@ const AboutPage = () => {
         <div>
             <PageHeader title="About" />
             <Image src="https://loremflickr.com/800/400" alt='lorem' width={800} height={400} />
+
         </div>
     )
 }
