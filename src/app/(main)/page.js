@@ -1,4 +1,3 @@
-import PageHeader from "@/components/common/page-header";
 import Spacer from "@/components/common/spacer";
 import UpcomingProduct from "@/components/homepage/UpcomingProduct";
 import Slider from "@/components/homepage/slider";
@@ -12,7 +11,6 @@ export default function Home() {
 
   return (
     <div>
-      <PageHeader title={Home} />
       <Spacer height={50} />
       < Slider />
       <Spacer height={50} />
