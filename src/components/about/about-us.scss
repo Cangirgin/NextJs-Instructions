@@ -1,0 +1,11 @@
+.about-container{
+    img{
+    border-radius: 50%;
+
+    @media screen and (max-width: 576px) {
+        width: 350px;
+        height: 350px;
+        
+    }
+    }
+}

@@ -1,5 +1,6 @@
-import PageHeader from '@/components/common/page-header'
-import Image from 'next/image'
+import AboutUs from '@/components/about/about-us';
+import Spacer from '@/components/common/spacer';
+import { config } from '@/helpers/config';
 import React from 'react'
 
 
@@ -8,15 +9,18 @@ export const metadata = {
     description: "You can get luxury electronic devices",
 };
 
-const AboutPage = () => {
+const AboutPage = async () => {
+    const resp = await fetch(`${config.apiBaseURL}/products2/3`);
+    const product = await resp.json();
 
 
     return (
-        <div>
-            <PageHeader title="About" />
-            <Image src="https://loremflickr.com/800/400" alt='lorem' width={800} height={400} />
+        <>
+            <Spacer height="50" />
+            <AboutUs product={product} />
+            <Spacer height="50" />
+        </>
 
-        </div>
     )
 }
 
